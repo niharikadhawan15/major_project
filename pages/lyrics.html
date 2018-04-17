@@ -1,0 +1,144 @@
+<!-- <div>Restaurant Info goes here</div>
+<h1>Show Restaurant {{restaurantId}} details here</h1> -->
+<style>
+.bg{
+background-color: white;
+}
+.lyric {
+    background-color: white;
+    position: relative;
+}
+</style>
+<div class="bg" >
+<nav class="navbar navbar-default navbar-fixed">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Musica</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#!/home">Home</a></li> <!--to go to the home page -->
+              <li><a href="#!/about">About</a></li>
+       
+              <li><a href="#!/">Logout</a></li> <!--to go to the login form page -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!-- 'ng-if' directive to show a blank page if that restaurant does not exist -->
+
+<hr>
+<br>
+<div class="lyric" ng-if="lyric.name">
+    <div class="rest-wrapper">
+        <div class="image">
+            <img src="{{lyric.image}}" height="100" width="100">
+        </div>
+        <div class="rest-info">
+            <div class="rest-category">
+               <small>{{lyric.category}} </small>
+            </div>
+            <div class="rest-name">
+            <strong>{{lyric.name}}</strong>
+            </div>
+            <div>
+               <strong> {{lyric.album}}</strong>
+            </div>
+            <div class="rest-address">
+                {{lyric.artist}}
+            </div>
+        </div>
+    </div>
+    <div class="rest-extra">
+        <div class="type">
+            <div><small>Duration:</small></div>
+            <div><small>Video: </small></div>
+            <div><small>Lyrics:</small></div>
+        </div>
+        <div class="value">
+            <div>{{lyric.duration}}</div>
+            <div><a href="{{lyric.video}}" style="color:white"><div class="button1"> <strong>video</strong></div></a></div>
+            <div> <img ng-src="{{lyric.lyrics}}" style="margin-top: 30px;width:400px; height:600px;"></div>
+
+                <!-- Created a button for 'getting ingredients' of a recommended dish offered by that restaurant -->
+    		    </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+<!-- here is the code for the footer part of the app -->
+<div class="row" id="main-footer" >
+    <div class="container-fluid">
+    <!-- it is the first row of the footer -->
+        <div class="row">
+            <div class="middle-outer">
+                <div class="col-md-4">
+                    <ul class="nav flex-column bottom-line">
+                        <li class="nav-item">
+                            <a class="nav-link footer-headers" href="#!/about">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <ul class="nav flex-column bottom-line">
+                        <li class="nav-item">
+                            <a class="nav-link footer-headers" href="#!/home">Home</a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+</div>
+        <!-- this is the second row of the footer part of the app -->
+        <div class="row" id="second-footer">
+            <div class="middle-outer"><div class="footer-separator">
+            </div>
+            <div class="col-md-8 col-xs-12">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                         <a class="nav-link" href="songs/happy.html">Happy</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="songs/sad.html">Sad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="songs/romantic.html">Romantic</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="songs/rainy.html">Rainy</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="songs/mix.html">Mix</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="songs/wedding.html">Wedding</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="songs/retro.html">Retro</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="songs/religious.html">Religious</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="songs/party.html">Party</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
