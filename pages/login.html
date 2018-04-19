@@ -6,19 +6,19 @@
          MUSICA      <br><hr>
        </span>
    </header>
-<body>
+
     <div class="input-wrapper">
             <div class="container" id="log">
                 <div class="col-6 login-form">
                   <h3> Login </h3>
-                  <form name="loginForm">
+                  <form name="loginForm" action="validation.php" method="post">
                   <div class="form-group">
                           <label for="user-email" >Email address</label>
                           <div >
                           <!-- this contains an input label for email in the login form -->
-                          <input type="email" class="form-control" id="user-email" placeholder="Email" name="email" value="em[]" ng-model="user.email" required="">
+                          <input type="email" class="form-control" id="user-email" placeholder="Email" name="email" ng-model="user.email" required="">
                                     <!-- the email provided by the user should be valid such that it must contains @ symbol -->
-                                    <div ng-if="em.includes(user.email)"> Valid email</div>
+              
                           <div ng-show="loginForm.email.$error.required">Required!</div>
                           <!-- if the email provided by the user is not valid then an error message is displayed -->
                           <div ng-show="loginForm.email.$error.email">This doesn't look like a valid email</div>
@@ -26,7 +26,7 @@
                       <div class="form-group">
                           <!-- here the user inputs the password -->
                           <label for="user-password">Password</label>
-                          <input type="password" class="form-control" id="user-password" placeholder="Password" name="password" pattern="musica@123" required="" ng-model="user.password" value="musica@123">
+                          <input type="password" class="form-control" id="user-password" placeholder="Password" name="password"pattern="musica@123" required="" ng-model="user.password" value="musica@123">
 
                           <div ng-show="loginForm.password.$error.required">
                               Please enter your password
@@ -36,7 +36,7 @@
                           </div>
                       </div>
                       <!--  this is the submit button which remains disabled which necessary conditions are not met -->
-                      <button type="submit" class="btn btn-default" ng-disabled="loginForm.$invalid" ng-click="goToHome()">Login</button>
+                      <button type="submit" class="btn btn-default" ng-disabled="loginForm.$invalid">Login</button>
                   </form>
                 </div>
                 <div class="col-3 acontainer" id="slide" >
@@ -61,4 +61,4 @@
               <p id="text"><strong>Welcome to Musica, enjoy the latest trending music available now according to your mood.
               <br>Instant access to Top rated songs... Listen to your favorite Music.
             </strong></p>
-</div></body>
+</div>
