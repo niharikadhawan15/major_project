@@ -1,21 +1,7 @@
 
 //this part of the code has been provided the ngRoute to make the routing available in the app between various pages
 var musicaApp = angular.module('musicaApp',['ngRoute']);
-
-
-$('.form-group button').on('click', function() {
-        var email = $('#user-email').val();
-        if(email=='test@acadview.com') /* email should be test@acadview.com and the password should be JavascriptRocks*/
-        {
-             $('.welcome-screen').addClass('hidden');
-        }
-        else {
-            $('#user-email').addClass('error');    /* to display error message if validations are not met*/
-            $('.input-wrapper').find('h4').text('Email is incorrect.');
-        }
-});
-
-
+var em = ['aa@aa', 'bb@bb'];
 //this part of the code contains the config part with the url that will direct to their specified page and their controller
 musicaApp.config(function ($routeProvider) {
   $routeProvider
@@ -31,7 +17,7 @@ musicaApp.config(function ($routeProvider) {
   })
     //this part is for main1
   .when('/main1',{
-    templateUrl: 'pages/main1.html',
+    templateUrl: 'main1.html',
     controller: 'main1Controller'
   })
   //this part is for about
@@ -82,8 +68,17 @@ musicaApp.controller('loginController',function($scope,$location) {
   }
 })
 
+/*musicaApp.controller('signupController',function($scope,$http,$location){
+  $scope.insertData = function()
+  {
+    $http.post("script.php",{'name':$scope.name,'email':$scope.email}).success(function(data){alert(data);});
+    
+  }
 
-//this part of our code act as login controller
+    $location.url('main1');
+})
+};
+*///this part of our code act as login controller
 musicaApp.controller('signupController',function($scope,$location) {
   $scope.goTomain1 = function() {
     //console.log('Do Something')
@@ -107,14 +102,14 @@ jQuery.fn.liScroll = function(settings) {
         $strip.addClass("newsticker")
         var stripHeight = 1;
         $strip.find("li").each(function(i){
-          stripHeight += jQuery(this, i).outerHeight(true); // thanks to Michael Haszprunar and Fabien Volpi
+          stripHeight += jQuery(this, i).outerHeight(true); 
         });
         var $mask = $strip.wrap("<div class='mask'></div>");
         var $tickercontainer = $strip.parent().wrap("<div class='tickercontainer'></div>");
-        var containerHeight = $strip.parent().parent().height();  //a.k.a. 'mask' width
+        var containerHeight = $strip.parent().parent().height(); 
         $strip.height(stripHeight);
         var totalTravel = stripHeight;
-        var defTiming = totalTravel/settings.travelocity; // thanks to Scott Waye
+        var defTiming = totalTravel/settings.travelocity; 
         function scrollnews(spazio, tempo){
         $strip.animate({top: '-='+ spazio}, tempo, "linear", function(){$strip.css("top", containerHeight); scrollnews(totalTravel, defTiming);});
         }
@@ -137,21 +132,21 @@ $(function(){
 
 
 musicaApp.controller('lyricController',function($scope) { //object variable-create a controller(1st arg-name of the controller,2nd arg-function we want controller to do)
-  //Created an array of restaurant objects
+
   $scope.lyrics = [
 {
   id: '1',
   name: 'India wale',
   album: 'Happy New Year',
   duration: '2:04',
-  image: '/songs/songimg/happyh1.jpg',
+  image: '/musica1/songs/songimg/happyh1.jpg',
   category: 'Happy (Hindi)'
 },
 {
     'name': 'Jag ghoomeya',
     'album': 'Sultan',
     'duration': '2:35',
-   'image': '/songs/songimg/happyh2.jpg',
+   'image': '/musica1/songs/songimg/happyh2.jpg',
      id:'2',
      category: 'Happy (Hindi)'
     },
@@ -160,7 +155,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
     'name': 'Radio',
     'album': 'Tubelight',
     'duration': '4:49',
-    'image': '/songs/songimg/happyh3.jpg',
+    'image': '/musica1/songs/songimg/happyh3.jpg',
    'id':'3',
    category: 'Happy (Hindi)'
 },
@@ -169,7 +164,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
     'name': 'Rang De Basanti',
       'album': 'Rang De Basanti',
     'duration': '6:03',
-    'image': '/songs/songimg/happyh4.jpg',
+    'image': '/musica1/songs/songimg/happyh4.jpg',
    'id':'4',
    category: 'Happy (Hindi)'
  },
@@ -179,7 +174,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
        'album': 'Single',
        'duration': '3:08',
        'fileName': 'songs/happyp1.mp3',
-       'image': '/songs/songimg/happyp1.jpg',
+       'image': '/musica1/songs/songimg/happyp1.jpg',
        'id':'5',
        category: 'Happy (Punjabi)'
    },
@@ -189,7 +184,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
        'album': 'Single',
        'duration': '2:04',
        'fileName': 'songs/happyp2.mp3',
-      'image': '/songs/songimg/happyp2.jpg',
+      'image': '/musica1/songs/songimg/happyp2.jpg',
       'id':'6',
       category: 'Happy (Punjabi)'
    },
@@ -200,7 +195,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
        'album': 'Single',
        'duration': '2:43',
        'fileName': 'songs/happyp3.mp3',
-       'image': '/songs/songimg/happyp3.jpg',
+       'image': '/musica1/songs/songimg/happyp3.jpg',
        'id':'7',
        category: 'Happy (Punjabi)'
    },
@@ -211,7 +206,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
        'album': 'Time table',
        'duration': '4:42',
        'fileName': 'songs/happyp4.mp3',
-       'image': '/songs/songimg/happyp4.jpg',
+       'image': '/musica1/songs/songimg/happyp4.jpg',
        'id':'8',
        category: 'Happy (Punjabi)'
    },
@@ -221,7 +216,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
           'album': 'Single',
           'duration': '1:18',
           'fileName': 'songs/happye1.mp3',
-          'image': '/songs/songimg/happye1.jpg',
+          'image': '/musica1/songs/songimg/happye1.jpg',
           'id':'9',
           category: 'Happy (English)'
 
@@ -232,7 +227,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
           'album': 'Single',
           'duration': '5:52',
           'fileName': 'songs/rome1.mp3',
-         'image': '/songs/songimg/rome1.jpg',
+         'image': '/musica1/songs/songimg/rome1.jpg',
          'id':'10',
          category: 'Happy (English)'
 
@@ -244,7 +239,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
           'album': 'Single',
           'duration': '1:11',
           'fileName': 'songs/happye3.mp3',
-          'image': '/songs/songimg/happye3.jpg',
+          'image': '/musica1/songs/songimg/happye3.jpg',
           'id':'11',
           category: 'Happy (English)'
 
@@ -256,7 +251,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
           'album': 'Single',
           'duration': '2:19',
           'fileName': 'songs/happye4.mp3',
-          'image': '/songs/songimg/happye4.jpg',
+          'image': '/musica1/songs/songimg/happye4.jpg',
           'id':'12',
           category: 'Happy (English)'
       },
@@ -267,7 +262,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
              'album': 'Baaghi',
              'duration': '4:44',
              'fileName': 'songs/song1.mp3',
-             'image': '/songs/songimg/rainyh3.jpg',
+             'image': '/musica1/songs/songimg/rainyh3.jpg',
              'id':'13',
              category: 'Rainy (Hindi)'
          },
@@ -277,7 +272,7 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
            'album': 'Aashiqui 2',
            'duration': '6:30',
            'fileName': 'songs/song3.mp3',
-          'image': '/songs/songimg/sahh2.png',
+          'image': '/musica1/songs/songimg/sahh2.png',
           'id':'14',
           category: 'sad (Hindi)'
 
@@ -290,84 +285,84 @@ musicaApp.controller('lyricController',function($scope) { //object variable-crea
            'album': 'Aashiqui 2',
            'duration': '4:24',
            'fileName': 'songs/song4.mp3',
-           'image': '/songs/songimg/romantich4.jpg',
+           'image': '/musica1/songs/songimg/romantich4.jpg',
            'id':'15',
            category: 'Romantic (Hindi)'
 
        },
-       {
-        'name': 'Abhi to party',
-        'artist': ' Aastha, Armaan Malik',
-        'album': 'Khoobsurat',
-        'duration': '2:59',
-        'fileName': 'songs/partyh1.mp3',
-        'image': '/songs/songimg/partyh1.jpg',
-        'id':'16',
-        category: 'Party (Hindi)'
-    },
-    {
-        'name': 'Chittiyan kalaiyan',
-        'artist': 'Kanika Kapoor',
-        'album': 'Roy',
-        'duration': '4:05',
-        'fileName': 'songs/partyh2.mp3',
-       'image': '/songs/songimg/partyh2.jpg',
-       'id':'17',
-       category: 'Party (Hindi)'
-    },
- {
-
-        'name': 'Kala chashma',
-        'artist': '  Neha Kakkar, Amar Arshi',
-        'album': 'Baar Baar dekho',
-        'duration': '4:24',
-        'fileName': 'songs/partyh3.mp3',
-        'image': '/songs/songimg/partyh3.jpg',
-        'id':'18',
-        category: 'Party (Hindi)'
-
-    },
-
-    {
-        'name': 'Nashe si chad gayi',
-        'artist': 'Arijit Singh, Caralisa Monteiro',
-        'album': 'Befikre',
-        'duration': '3:58',
-        'fileName': 'songs/partyh4.mp3',
-        'image': '/songs/songimg/partyh4.jpg',
-        'id':'19',
-        category: 'Party (Hindi)'
-    },
-    {
-           'name': 'Dulhe ka sehra',
-           'artist': 'Nusrat Fateh Ali Khan',
-           'album': 'Dhadkan',
-           'duration': '4:35',
-           'fileName': 'songs/wedh1.mp3',
-           'image': '/songs/songimg/wedh1.jpg',
-           'id':'20',
-           category: 'Wedding (Hindi)'
-       },
-       {
-             'name': 'Aajkal tere mere pyaar ke',
-             'artist': 'Mohammed Rafi',
-             'album': 'Brahmachari',
-             'duration': '5:11',
-             'fileName': 'songs/retroh1.mp3',
-             'image': '/songs/songimg/retroh2.jpg',
-             'id':'21',
-             category: 'Retro (Hindi)'
+              {
+             'name': 'Abhi to party',
+             'artist': ' Aastha, Armaan Malik',
+             'album': 'Khoobsurat',
+             'duration': '2:59',
+             'fileName': 'songs/partyh1.mp3',
+             'image': '/musica1/songs/songimg/partyh1.jpg',
+             'id':'16',
+             category: 'Party (Hindi)'
          },
          {
-                'name': 'Ganesh aarti',
-                'artist': 'Anuradha Paudwal ',
-                'album': 'Devichya Aartya',
-                'duration': '2:55',
-                'fileName': 'songs/relh1.mp3',
-                'image': '/songs/songimg/relh1.jpg',
-                'id':'22',
-                category: 'Religious (Hindi)'
-            }];
+             'name': 'Chittiyan kalaiyan',
+             'artist': 'Kanika Kapoor',
+             'album': 'Roy',
+             'duration': '4:05',
+             'fileName': 'songs/partyh2.mp3',
+            'image': '/musica1/songs/songimg/partyh2.jpg',
+            'id':'17',
+            category: 'Party (Hindi)'
+         },
+      {
+
+             'name': 'Kala chashma',
+             'artist': '  Neha Kakkar, Amar Arshi',
+             'album': 'Baar Baar dekho',
+             'duration': '4:24',
+             'fileName': 'songs/partyh3.mp3',
+             'image': '/musica1/songs/songimg/partyh3.jpg',
+             'id':'18',
+             category: 'Party (Hindi)'
+
+         },
+
+         {
+             'name': 'Nashe si chad gayi',
+             'artist': 'Arijit Singh, Caralisa Monteiro',
+             'album': 'Befikre',
+             'duration': '3:58',
+             'fileName': 'songs/partyh4.mp3',
+             'image': '/musica1/songs/songimg/partyh4.jpg',
+             'id':'19',
+             category: 'Party (Hindi)'
+         },
+                  {
+                'name': 'Dulhe ka sehra',
+                'artist': 'Nusrat Fateh Ali Khan',
+                'album': 'Dhadkan',
+                'duration': '4:35',
+                'fileName': 'songs/wedh1.mp3',
+                'image': '/musica1/songs/songimg/wedh1.jpg',
+                'id':'20',
+                category: 'Wedding (Hindi)'
+            },
+            {
+                  'name': 'Aajkal tere mere pyaar ke',
+                  'artist': 'Mohammed Rafi',
+                  'album': 'Brahmachari',
+                  'duration': '5:11',
+                  'fileName': 'songs/retroh1.mp3',
+                  'image': '/musica1/songs/songimg/retroh2.jpg',
+                  'id':'21',
+                  category: 'Retro (Hindi)'
+              },
+              {
+                     'name': 'Ganesh aarti',
+                     'artist': 'Anuradha Paudwal ',
+                     'album': 'Devichya Aartya',
+                     'duration': '2:55',
+                     'fileName': 'songs/relh1.mp3',
+                     'image': '/musica1/songs/songimg/relh1.jpg',
+                     'id':'22',
+                     category: 'Religious (Hindi)'
+                 }];
 })
 musicaApp.controller('lyricsController',function($scope,$routeParams) {
   $scope.lyricId = $routeParams.id;
@@ -377,20 +372,20 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
     artist: ' Neeti Mohan, KK, Vishal Dadlani',
     album: 'Happy New Year',
     duration: '2:04',
-    image: '/songs/songimg/happyh1.jpg',
+    image: '/musica1/songs/songimg/happyh1.jpg',
     category: 'Happy',
     video: 'https://www.youtube.com/embed/X-DDknSzELI',
-    lyrics: '/lyrics/1.png'
+    lyrics: '/musica1/lyrics/1.png'
 },
 {
     'name': 'Jag ghoomeya',
     'artist': 'Rahat Fateh Ali Khan',
     'album': 'Sultan',
     'duration': '2:35',
-   'image': '/songs/songimg/happyh2.jpg',
+   'image': '/musica1/songs/songimg/happyh2.jpg',
    category: 'Happy',
    video: 'https://www.youtube.com/embed/t10sQb0Zmjs',
-   lyrics: '/lyrics/2.png'
+   lyrics: '/musica1/lyrics/2.png'
 },
 {
 
@@ -398,10 +393,10 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
     'artist': ' Kamaal Khan, Amit Mishra',
     'album': 'Tubelight',
     'duration': '4:49',
-    'image': '/songs/songimg/happyh3.jpg',
+    'image': '/musica1/songs/songimg/happyh3.jpg',
     category: 'Happy',
     video: 'https://www.youtube.com/embed/FIMz4M2Vuw4',
-    lyrics: '/lyrics/3.png'
+    lyrics: '/musica1/lyrics/3.png'
 },
 
 {
@@ -409,10 +404,10 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
     'artist': 'A. R. Rahman',
     'album': 'Rang De Basanti',
     'duration': '6:03',
-    'image': '/songs/songimg/happyh4.jpg',
+    'image': '/musica1/songs/songimg/happyh4.jpg',
     category: 'Happy',
     video: 'https://www.youtube.com/embed/c769V25pX08',
-    lyrics: '/lyrics/4.png'
+    lyrics: '/musica1/lyrics/4.png'
 },
 {
       'name': 'Kadar',
@@ -420,11 +415,11 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
       'album': 'Single',
       'duration': '3:08',
       'fileName': 'songs/happyp1.mp3',
-      'image': '/songs/songimg/happyp1.jpg',
+      'image': '/musica1/songs/songimg/happyp1.jpg',
       'id':'5',
       category: 'Happy',
       video: 'https://www.youtube.com/embed/BgrJ4k5FtE',
-      lyrics: '/lyrics/5.png'
+      lyrics: '/musica1/lyrics/5.png'
   },
   {
       'name': 'Lamborghini',
@@ -432,11 +427,11 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
       'album': 'Single',
       'duration': '2:04',
       'fileName': 'songs/happyp2.mp3',
-     'image': '/songs/songimg/happyp2.jpg',
+     'image': '/musica1/songs/songimg/happyp2.jpg',
      'id':'6',
      category: 'Happy',
      video: 'https://www.youtube.com/embed/fychacOx7F8',
-     lyrics: '/lyrics/6.png'
+     lyrics: '/musica1/lyrics/6.png'
   },
 {
 
@@ -445,11 +440,11 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
       'album': 'Single',
       'duration': '2:43',
       'fileName': 'songs/happyp3.mp3',
-      'image': '/songs/songimg/happyp3.jpg',
+      'image': '/musica1/songs/songimg/happyp3.jpg',
       'id':'7',
       category: 'Happy',
       video: 'https://www.youtube.com/embed/FUhqGOb1-gc',
-      lyrics: '/lyrics/7.png'
+      lyrics: '/musica1/lyrics/7.png'
   },
 
   {
@@ -458,11 +453,11 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
       'album': 'Time table',
       'duration': '4:42',
       'fileName': 'songs/happyp4.mp3',
-      'image': '/songs/songimg/happyp4.jpg',
+      'image': '/musica1/songs/songimg/happyp4.jpg',
       'id':'8',
       category: 'Happy',
       video: 'https://www.youtube.com/embed/6tpLUszWs9M',
-      lyrics: '/lyrics/8.png'
+      lyrics: '/musica1/lyrics/8.png'
   },
   {
          'name': 'Happy Together',
@@ -470,11 +465,11 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
          'album': 'Single',
          'duration': '1:18',
          'fileName': 'songs/happye1.mp3',
-         'image': '/songs/songimg/happye1.jpg',
+         'image': '/musica1/songs/songimg/happye1.jpg',
          'id':'9',
          category: 'Happy',
          video: 'https://www.youtube.com/embed/mRCe5L1imxg',
-         lyrics: '/lyrics/9.png'
+         lyrics: '/musica1/lyrics/9.png'
 
      },
      {
@@ -483,11 +478,11 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
          'album': 'Single',
          'duration': '5:52',
          'fileName': 'songs/rome1.mp3',
-        'image': '/songs/songimg/rome1.jpg',
+        'image': '/musica1/songs/songimg/rome1.jpg',
         'id':'10',
         category: 'Happy',
         video: 'https://www.youtube.com/embed/a7SouU3ECpU',
-        lyrics: '/lyrics/10.png'
+        lyrics: '/musica1/lyrics/10.png'
 
      },
   {
@@ -497,11 +492,11 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
          'album': 'Single',
          'duration': '1:11',
          'fileName': 'songs/happye3.mp3',
-         'image': '/songs/songimg/happye3.jpg',
+         'image': '/musica1/songs/songimg/happye3.jpg',
          'id':'11',
          category: 'Happy',
          video: 'https://www.youtube.com/embed/Qh9ZZgDqzAg',
-         lyrics: '/lyrics/11.png'
+         lyrics: '/musica1/lyrics/11.png'
 
      },
 
@@ -511,11 +506,11 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
          'album': 'Single',
          'duration': '2:19',
          'fileName': 'songs/happye4.mp3',
-         'image': '/songs/songimg/happye4.jpg',
+         'image': '/musica1/songs/songimg/happye4.jpg',
          'id':'12',
          category: 'Happy',
          video: 'https://www.youtube.com/embed/2MZxf-lQD-o',
-         lyrics: '/lyrics/12.png'
+         lyrics: '/musica1/lyrics/12.png'
      },
      {
 
@@ -524,11 +519,11 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
             'album': 'Baaghi',
             'duration': '4:44',
             'fileName': 'songs/song1.mp3',
-            'image': '/songs/songimg/rainyh3.jpg',
+            'image': '/musica1/songs/songimg/rainyh3.jpg',
             'id':'13',
             category: 'Rainy',
             video: 'https://www.youtube.com/embed/f6vY6tYvKGA',
-            lyrics: '/lyrics/13.png'
+            lyrics: '/musica1/lyrics/13.png'
         },
       {
           'name': 'Sun Raha Hai Naa Tu ',
@@ -536,11 +531,11 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
           'album': 'Aashiqui 2',
           'duration': '6:30',
           'fileName': 'songs/song3.mp3',
-         'image': '/songs/songimg/sahh2.png',
+         'image': '/musica1/songs/songimg/sahh2.png',
          'id':'14',
          category: 'sad',
          video: 'https://www.youtube.com/embed/z3UHfi9vpbc',
-         lyrics: '/lyrics/14.png'
+         lyrics: '/musica1/lyrics/14.png'
 
       },
 
@@ -551,99 +546,100 @@ musicaApp.controller('lyricsController',function($scope,$routeParams) {
           'album': 'Aashiqui 2',
           'duration': '4:24',
           'fileName': 'songs/song4.mp3',
-          'image': '/songs/songimg/romantich4.jpg',
+          'image': '/musica1/songs/songimg/romantich4.jpg',
           'id':'15',
           category: 'Romantic',
           video: 'https://www.youtube.com/embed/Umqb9KENgmk',
-          lyrics: '/lyrics/15.png'
+          lyrics: '/musica1/lyrics/15.png'
 
       },
-      {
-           'name': 'Abhi to party',
-           'artist': ' Aastha, Armaan Malik',
-           'album': 'Khoobsurat',
-           'duration': '2:59',
-           'fileName': 'songs/partyh1.mp3',
-           'image': '/songs/songimg/partyh1.jpg',
-           'id':'16',
-           category: 'Party (Hindi)',
-           video: 'https://www.youtube.com/embed/8LZgzAZ2lpQ',
-           lyrics: '/lyrics/16.png'
-       },
-       {
-           'name': 'Chittiyan kalaiyan',
-           'artist': 'Kanika Kapoor',
-           'album': 'Roy',
-           'duration': '4:05',
-           'fileName': 'songs/partyh2.mp3',
-          'image': '/songs/songimg/partyh2.jpg',
-          'id':'17',
-          category: 'Party (Hindi)',
-          video: 'https://www.youtube.com/embed/zpsVpnvFfZQ',
-          lyrics: '/lyrics/17.png'
-       },
-    {
-
-           'name': 'Kala chashma',
-           'artist': '  Neha Kakkar, Amar Arshi',
-           'album': 'Baar Baar dekho',
-           'duration': '4:24',
-           'fileName': 'songs/partyh3.mp3',
-           'image': '/songs/songimg/partyh3.jpg',
-           'id':'18',
-           category: 'Party (Hindi)',
-           video: 'https://www.youtube.com/embed/k4yXQkG2s1E',
-           lyrics: '/lyrics/18.png'
-
-       },
-
-       {
-           'name': 'Nashe si chad gayi',
-           'artist': 'Arijit Singh, Caralisa Monteiro',
-           'album': 'Befikre',
-           'duration': '3:58',
-           'fileName': 'songs/partyh4.mp3',
-           'image': '/songs/songimg/partyh4.jpg',
-           'id':'19',
-           category: 'Party (Hindi)',
-           video: 'https://www.youtube.com/embed/Wd2B8OAotU8',
-           lyrics: '/lyrics/19.png'
-       },
-       {
-              'name': 'Dulhe ka sehra',
-              'artist': 'Nusrat Fateh Ali Khan',
-              'album': 'Dhadkan',
-              'duration': '4:35',
-              'fileName': 'songs/wedh1.mp3',
-              'image': '/songs/songimg/wedh1.jpg',
-              'id':'20',
-              category: 'Wedding (Hindi)',
-              video: 'https://www.youtube.com/embed/VPg3WCPixKU',
-              lyrics: '/lyrics/20.png'
-          },
-          {
-                'name': 'Aajkal tere mere pyaar ke',
-                'artist': 'Mohammed Rafi',
-                'album': 'Brahmachari',
-                'duration': '5:11',
-                'fileName': 'songs/retroh1.mp3',
-                'image': '/songs/songimg/retroh2.jpg',
-                'id':'21',
-                category: 'Retro (Hindi)',
-                video: 'https://www.youtube.com/embed/KIvLi9JT8tE',
-                lyrics: '/lyrics/21.png'
-            },
             {
-                   'name': 'Ganesh aarti',
-                   'artist': 'Anuradha Paudwal ',
-                   'album': 'Devichya Aartya',
-                   'duration': '2:55',
-                   'fileName': 'songs/relh1.mp3',
-                   'image': '/songs/songimg/relh1.jpg',
-                   'id':'22',
-                   category: 'Religious (Hindi)',
-                   video: 'https://www.youtube.com/embed/ZYxdhMAF4F0',
-                   lyrics: '/lyrics/22.png'
-               }
+            'name': 'Abhi to party',
+            'artist': ' Aastha, Armaan Malik',
+            'album': 'Khoobsurat',
+            'duration': '2:59',
+            'fileName': 'songs/partyh1.mp3',
+            'image': '/musica1/songs/songimg/partyh1.jpg',
+            'id':'16',
+            category: 'Party (Hindi)',
+            video: 'https://www.youtube.com/embed/8LZgzAZ2lpQ',
+            lyrics: '/musica1/lyrics/16.png'
+        },
+        {
+            'name': 'Chittiyan kalaiyan',
+            'artist': 'Kanika Kapoor',
+            'album': 'Roy',
+            'duration': '4:05',
+            'fileName': 'songs/partyh2.mp3',
+           'image': '/musica1/songs/songimg/partyh2.jpg',
+           'id':'17',
+           category: 'Party (Hindi)',
+           video: 'https://www.youtube.com/embed/zpsVpnvFfZQ',
+           lyrics: '/musica1/lyrics/17.png'
+        },
+     {
+
+            'name': 'Kala chashma',
+            'artist': '  Neha Kakkar, Amar Arshi',
+            'album': 'Baar Baar dekho',
+            'duration': '4:24',
+            'fileName': 'songs/partyh3.mp3',
+            'image': '/musica1/songs/songimg/partyh3.jpg',
+            'id':'18',
+            category: 'Party (Hindi)',
+            video: 'https://www.youtube.com/embed/k4yXQkG2s1E',
+            lyrics: '/musica1/lyrics/18.png'
+
+        },
+
+        {
+            'name': 'Nashe si chad gayi',
+            'artist': 'Arijit Singh, Caralisa Monteiro',
+            'album': 'Befikre',
+            'duration': '3:58',
+            'fileName': 'songs/partyh4.mp3',
+            'image': '/musica1/songs/songimg/partyh4.jpg',
+            'id':'19',
+            category: 'Party (Hindi)',
+            video: 'https://www.youtube.com/embed/Wd2B8OAotU8',
+            lyrics: '/musica1/lyrics/19.png'
+        },
+                {
+               'name': 'Dulhe ka sehra',
+               'artist': 'Nusrat Fateh Ali Khan',
+               'album': 'Dhadkan',
+               'duration': '4:35',
+               'fileName': 'songs/wedh1.mp3',
+               'image': '/musica1/songs/songimg/wedh1.jpg',
+               'id':'20',
+               category: 'Wedding (Hindi)',
+               video: 'https://www.youtube.com/embed/VPg3WCPixKU',
+               lyrics: '/musica1/lyrics/20.png'
+           },
+           {
+                 'name': 'Aajkal tere mere pyaar ke',
+                 'artist': 'Mohammed Rafi',
+                 'album': 'Brahmachari',
+                 'duration': '5:11',
+                 'fileName': 'songs/retroh1.mp3',
+                 'image': '/musica1/songs/songimg/retroh2.jpg',
+                 'id':'21',
+                 category: 'Retro (Hindi)',
+                 video: 'https://www.youtube.com/embed/KIvLi9JT8tE',
+                 lyrics: '/musica1/lyrics/21.png'
+             },
+             {
+                    'name': 'Ganesh aarti',
+                    'artist': 'Anuradha Paudwal ',
+                    'album': 'Devichya Aartya',
+                    'duration': '2:55',
+                    'fileName': 'songs/relh1.mp3',
+                    'image': '/musica1/songs/songimg/relh1.jpg',
+                    'id':'22',
+                    category: 'Religious (Hindi)',
+                    video: 'https://www.youtube.com/embed/ZYxdhMAF4F0',
+                    lyrics: '/musica1/lyrics/22.png'
+                }
+]
 ]
   $scope.lyric = lyrics[$routeParams.id - 1];})
