@@ -39,7 +39,7 @@ h3{
           <div class="container" id="log">
               <div class="col-6 logins-form">
                 <h2> Sign-up</h2>
-                <form name="signForm">
+                <form name="signForm" action="registration.php" method="post">
                   <div class="form-group">
                           <label for="user-name">Name</label>
                           <!-- this contains an input label for email in the login form -->
@@ -69,5 +69,5 @@ h3{
         <div ng-show="signForm.contact.$error.pattern">This doesn't look like a valid contact no.</div>
     </div>
     <!--  this is the submit button which remains disabled which necessary conditions are not met -->
-    <button type="submit" class="btn btn-default" ng-disabled="signForm.$invalid" ng-click="goTomain1()">sign up</button>
+    <button type="submit" class="btn btn-default" ng-disabled="signForm.$invalid" >sign up</button>
 </form></div></div></div>
